@@ -339,7 +339,15 @@ public class InvasionManager {
                         }
                     } else {
                         if (!ConfigInvasion.Invasion_Message_startsTonight.equals("")) {
-                            player.sendMessage(new TextComponentString(ConfigInvasion.Invasion_Message_startsTonight));
+                            int luckyNumber = 8;
+                            int luckyNumber2 = 3;
+                            int drawnNumber = new Random().nextInt(10) + 1;
+                            if(drawnNumber != luckyNumber && drawnNumber != luckyNumber2) {
+                                player.sendMessage(new TextComponentString(ConfigInvasion.Invasion_Message_notLuckyNumberBypassed));
+                                storage.dataPlayerInvasionHappenedThisDay = true;
+                            } else {
+                                player.sendMessage(new TextComponentString(ConfigInvasion.Invasion_Message_startsTonight));
+                            }
                         }
                     }
                     storage.dataPlayerInvasionWarned = true;
@@ -418,7 +426,6 @@ public class InvasionManager {
             //world.getDifficultyForLocation(player.playerLocation);
 
             if (invasionActive && !skippingBool) {
-
                 if (world.getTotalWorldTime() % ConfigAdvancedOptions.aiTickRateEnhance == 0) {
                     if (ConfigAdvancedOptions.enhanceAllMobsOfSpawnedTypesForOmniscience) {
 
@@ -516,7 +523,6 @@ public class InvasionManager {
         } else {
             //TODO: no invasions for you! also this is bad?, perhaps hardcode a fallback default, what if no invasion is modpack makers intent
         }
-
 
         //System.out.println("invasion started");
 
@@ -867,10 +873,6 @@ public class InvasionManager {
         }
 
         return (float)dayStart % (float)ConfigInvasion.invadeEveryXDays == 0;
-
-        /*return dayNumber >= dayAdjust &&
-                (dayNumber-dayAdjust == 0 ||
-                        (dayNumber-dayAdjust) % Math.max(1, ConfigInvasion.invadeEveryXDays + 1) == 0);*/
     }
 
     /**

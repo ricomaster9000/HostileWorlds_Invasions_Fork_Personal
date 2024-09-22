@@ -16,7 +16,7 @@ public class ConfigInvasion implements IConfigCategory {
 	public static int firstInvasionNight = 3;
 
 	@ConfigComment("If set to 3, there are 2 days of no invasions then the 3rd day is an invasion, etc")
-	public static int invadeEveryXDays = 3;
+	public static int invadeEveryXDays = 2;
 
 	@ConfigComment("Amount of damage per second to give to mobs after invasion ends at sunrise to keep them from lingering around, set to 0 to disable")
 	public static double damagePerSecondToInvadersAtSunrise = 0;
@@ -39,6 +39,7 @@ public class ConfigInvasion implements IConfigCategory {
 
 	public static String Invasion_Message_startedButSkippedForYou = TextFormatting.GREEN + "An invasion has started! But skipped for you!";
 
+	public static String Invasion_Message_notLuckyNumberBypassed = TextFormatting.GREEN + "An invasion is skipped! The Lucky number was not drawn!";
 	@ConfigComment("Used if invasionCountingPerPlayer is on")
 	public static String Invasion_Message_startedButSkippedForYouTooSoon = TextFormatting.GREEN + "An invasion has started! But skipped for you because you havent been playing long enough, you need about %d days played";
 

@@ -7,11 +7,11 @@ import modconfig.IConfigCategory;
 
 public class ConfigAdvancedOptions implements IConfigCategory {
 
-	public static int spawnRangeMin = 24;
-	public static int spawnRangeMax = 100;
+	public static int spawnRangeMin = 30;
+	public static int spawnRangeMax = 80;
 
 	@ConfigComment("amount of times it loops per aiTickRateSpawning trigger")
-	public static int attemptsPerSpawn = 100;
+	public static int attemptsPerSpawn = 200;
 
 	public static int aiTickRateEnhance = 200;
 	@ConfigComment("Used during slow player tick run once every 20 ticks, so be carefull of what values used")
@@ -27,7 +27,7 @@ public class ConfigAdvancedOptions implements IConfigCategory {
 	public static boolean mobsMustSpawnInDarkness = true;
 
 	@ConfigComment("-1 to disable")
-	public static int failedTriesBeforeAllowingSpawnInLitAreas = 1000;
+	public static int failedTriesBeforeAllowingSpawnInLitAreas = 2000;
 
 	@Override
 	public String getName() {
